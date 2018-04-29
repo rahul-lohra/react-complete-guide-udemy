@@ -11,33 +11,31 @@ class App extends Component {
         ]
     };
 
-    switchNameHandler = () => {
+    switchNameHandler = (newName) => {
         console.log("button clicked");
-        //DONT do this this.state.persons[0] = "Mom"
         this.setState({
             persons: [
-                {name: "Mom", age: '24'}, {name: "Meenu", age: '30'}, {name: "Princy", age: '4'}
+                {name: newName, age: '24'}, {name: "Meenu", age: '30'}, {name: "Princy", age: '4'}
             ]
         })
     };
+
+    // alternate way to pass data - by using arrow functions but it is inefficient
 
     render() {
         return (
             <div className="App">
                 <h1>Hi I am a react app</h1>
                 <p>This is really working</p>
-                <button onClick={this.switchNameHandler}> Switch name</button>
+                <button onClick={()=>this.switchNameHandler("Bucky")}> Switch name</button>
                 <Preson name={this.state.persons[0].name} age={this.state.persons[0].age}/>
                 <Preson
                     name={this.state.persons[1].name} age={this.state.persons[1].age}
-                    click={this.switchNameHandler}>
+                    click={this.switchNameHandler.bind(this,"Barnes")}>
                     My hobbies : Sleeping</Preson>
                 <Preson name={this.state.persons[2].name} age={this.state.persons[2].age}/>
             </div>
         );
-        // const header = React.createElement('h1',null,'this is proper header')
-        // // return React.createElement('div',null,'hi','Hi I am a react app !!')
-        // return React.createElement('div',{className:'App'},header)
     }
 }
 
