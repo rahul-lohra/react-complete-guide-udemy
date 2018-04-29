@@ -20,6 +20,14 @@ class App extends Component {
         })
     };
 
+    nameChangeHandler = (event)=>{
+        this.setState({
+            persons: [
+                {name: "rahul kumar", age: '24'}, {name: event.target.value , age: '30'}, {name: "Princy", age: '4'}
+            ]
+        })
+    };
+
     // alternate way to pass data - by using arrow functions but it is inefficient
 
     render() {
@@ -31,7 +39,9 @@ class App extends Component {
                 <Preson name={this.state.persons[0].name} age={this.state.persons[0].age}/>
                 <Preson
                     name={this.state.persons[1].name} age={this.state.persons[1].age}
-                    click={this.switchNameHandler.bind(this,"Barnes")}>
+                    click={this.switchNameHandler.bind(this,"Barnes")}
+                    change={this.nameChangeHandler}
+                >
                     My hobbies : Sleeping</Preson>
                 <Preson name={this.state.persons[2].name} age={this.state.persons[2].age}/>
             </div>
