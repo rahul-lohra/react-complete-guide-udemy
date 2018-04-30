@@ -31,11 +31,22 @@ class App extends Component {
     // alternate way to pass data - by using arrow functions but it is inefficient
 
     render() {
+
+        const inlineStyle = {
+            backgroundColor:'white',
+            font:'inherit',
+            border: '1px solid blue',
+            padding:'8px',
+            cursor:'pointer'
+        };
+
         return (
             <div className="App">
                 <h1>Hi I am a react app</h1>
                 <p>This is really working</p>
-                <button onClick={()=>this.switchNameHandler("Bucky")}> Switch name</button>
+                <button
+                style={inlineStyle}
+                    onClick={()=>this.switchNameHandler("Bucky")}> Switch name</button>
                 <Preson name={this.state.persons[0].name} age={this.state.persons[0].age}/>
                 <Preson
                     name={this.state.persons[1].name} age={this.state.persons[1].age}
