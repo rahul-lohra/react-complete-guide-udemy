@@ -7,7 +7,9 @@ import Preson from './Person/Person'
 class App extends Component {
     state = {
         persons: [
-            {name: "Rahul", age: '24'}, {name: "Meenu", age: '28'}, {name: "Princy", age: '4'}
+            {id:'a1', name: "Rahul", age: '24'},
+            {id:'a2',name: "Meenu", age: '28'},
+            {id:'a3',name: "Princy", age: '4'}
         ],
         showPersons : false
     };
@@ -53,7 +55,12 @@ class App extends Component {
                     <div>
                         {
                             this.state.persons.map((person,index) =>{
-                                return <Preson name = {person.name} age={person.age} click = {()=>this.deletePersonHandler(index)}/>
+                                return <Preson
+                                    name = {person.name}
+                                    age={person.age}
+                                    click = {()=>this.deletePersonHandler(index)}
+                                    key = {person.id}
+                                />
                             })
                         }
                     </div>
