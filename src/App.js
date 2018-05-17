@@ -8,7 +8,8 @@ class App extends Component {
     state = {
         persons: [
             {name: "Rahul", age: '24'}, {name: "Meenu", age: '28'}, {name: "Princy", age: '4'}
-        ]
+        ],
+        showPersons : false
     };
 
     switchNameHandler = (newName) => {
@@ -28,6 +29,13 @@ class App extends Component {
         })
     };
 
+    toggleHandler = ()=>{
+        this.setState({
+            showPersons : !this.state.showPersons
+        })
+    };
+
+
     // alternate way to pass data - by using arrow functions but it is inefficient
 
     render() {
@@ -46,15 +54,21 @@ class App extends Component {
                 <p>This is really working</p>
                 <button
                 style={inlineStyle}
-                    onClick={()=>this.switchNameHandler("Bucky")}> Switch name</button>
-                <Preson name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-                <Preson
-                    name={this.state.persons[1].name} age={this.state.persons[1].age}
-                    click={this.switchNameHandler.bind(this,"Barnes")}
-                    change={this.nameChangeHandler}
-                >
-                    My hobbies : Sleeping</Preson>
-                <Preson name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+                    onClick={this.toggleHandler}> Switch name</button>
+                {
+                 this.state.showPersons?
+                     <div>
+                         <Preson name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+                         <Preson
+                             name={this.state.persons[1].name} age={this.state.persons[1].age}
+                             click={this.switchNameHandler.bind(this,"Barnes")}
+                             change={this.nameChangeHandler}
+                         >
+                             My hobbies : Sleeping</Preson>
+                         <Preson name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+                     </div>: null
+                }
+
             </div>
         );
     }
