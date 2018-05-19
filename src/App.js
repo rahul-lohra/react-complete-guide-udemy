@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Radium from  'radium'
 import Preson from './Person/Person'
+import { StyleRoot } from 'radium/lib';
 
 
 class App extends Component {
@@ -99,14 +100,17 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
-                <h1>Hi I am a react app</h1>
-                <p className = {classes.join(' ')}>This is really working</p>
-                <button
-                style={inlineStyle}
+            <StyleRoot>
+                <div className="App">
+                    <h1>Hi I am a react app</h1>
+                    <p className = {classes.join(' ')}>This is really working</p>
+                    <button
+                    style={inlineStyle}
                     onClick={this.toggleHandler}> Toggle Persons</button>
-                {persons}
-            </div>
+                    {persons}
+                </div>
+            </StyleRoot>
+            
         );
     }
 }
