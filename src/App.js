@@ -57,7 +57,11 @@ class App extends Component {
             font:'inherit',
             border: '1px solid blue',
             padding:'8px',
-            cursor:'pointer'
+            cursor:'pointer',
+            ':hover':{
+                backgroundColor:'lightgreen',
+                color:'red'
+            }
         };
 
         let persons = null
@@ -79,6 +83,10 @@ class App extends Component {
                     </div>
             );
             inlineStyle.backgroundColor = 'red'
+            inlineStyle[':hover'] = {
+                backgroundColor :'lightred',
+                color:'black'
+            }
         }
 
         let classes  = []
