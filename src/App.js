@@ -51,7 +51,8 @@ class App extends Component {
     render() {
 
         const inlineStyle = {
-            backgroundColor:'white',
+            backgroundColor:'green',
+            color:'white',
             font:'inherit',
             border: '1px solid blue',
             padding:'8px',
@@ -76,6 +77,7 @@ class App extends Component {
                         }
                     </div>
             );
+            inlineStyle.backgroundColor = 'red'
         }
 
         return (
