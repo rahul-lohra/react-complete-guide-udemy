@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 import Preson from './Person/Person'
 import { StyleRoot } from 'radium/lib';
 
@@ -81,19 +81,19 @@ class App extends Component {
             inlineStyle.backgroundColor = 'red'
         }
 
-        let classes  = []
+        let assignedClasses  = []
         if(this.state.persons.length <=2 ){
-            classes.push('red')
+            assignedClasses.push(classes.red)
         }
 
         if(this.state.persons.length <=1 ){
-            classes.push('bold')
+            assignedClasses.push(classes.bold)
         }
 
         return (
-                <div className="App">
+                <div className={classes.App}>
                     <h1>Hi I am a react app</h1>
-                    <p className = {classes.join(' ')}>This is really working</p>
+                    <p className = {assignedClasses.join(' ')}>This is really working</p>
                     <button
                     style={inlineStyle}
                     onClick={this.toggleHandler}> Toggle Persons</button>
