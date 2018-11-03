@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import logo from '../logo.svg';
 import classes from './App.css';
 import Preson from '../components/Person/Person'
-import { StyleRoot } from 'radium/lib';
-
 
 class App extends Component {
     state = {
